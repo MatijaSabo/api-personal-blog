@@ -31,6 +31,8 @@ class FeedbackRepository {
             Item: {
                 id: uuidv4(),
                 message: data.message,
+                hidden: data.hidden,
+                author: data.author
             },
         };
 
@@ -45,12 +47,16 @@ class FeedbackRepository {
             Key: {
                 id: id
             },
-            UpdateExpression: `set #message = :message`,
+            UpdateExpression: `set #message = :message, #hidden = :hidden, #author = :author`,
             ExpressionAttributeNames: {
                 '#message': `message`,
+                '#hidden': `hidden`,
+                '#author': 'author'
             },
             ExpressionAttributeValues: {
                 ":message": data.message,
+                ":hidden": data.hidden,
+                ":author": data.author
             },
             ReturnValues: `UPDATED_NEW`,
         };
@@ -81,7 +87,6 @@ async function dbRead(params) {
         data = data.concat(await dbRead(params));
     }
     return data;
-    
 }
 
 module.exports = new FeedbackRepository();
