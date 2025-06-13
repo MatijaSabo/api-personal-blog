@@ -18,13 +18,17 @@ class FeedbackService {
 
     async create(data) {
         return await FeedbackRepository.create({
-            message: data.message
+            message: data.message,
+            author: data.author,
+            hidden: data.hidden
         });
     }
 
     async update(id, data) {
         return await FeedbackRepository.update(id, {
-            message: data.message
+            message: data.message,
+            author: data.author,
+            hidden: data.hidden
         });
     }
 
