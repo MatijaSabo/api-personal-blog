@@ -2,20 +2,45 @@ body {
     background-color: #fffcf2;
 }
 
-h1 {
-    color: #252422;
-    font-size: 6rem;
-    line-height: 1;
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.font-jet-brains-mono {
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal;
 }
 
-.content {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+h1 {
+    color: #252422;
+    line-height: 1;
+}
+
+@media (width < 40rem) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (width >= 40rem) {
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (width >= 48rem) {
+    h1 {
+        font-size: 5rem;
+    }
+}
+
+@media (width >= 64rem) {
+    h1 {
+        font-size: 6rem;
+    }
 }
