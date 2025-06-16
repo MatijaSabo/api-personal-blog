@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const path = require('path');
 const app = express()
 const port = 3001
 
@@ -8,7 +9,7 @@ const bodyParser = require('body-parser')
 const createServer = async () => {
     app.use(cors())
     app.use(bodyParser.json())
-    app.use(express.static('./public'))
+    app.use(express.static(path.join(__dirname, 'public')))
 
     // routes
     require(`./src/routes/api`)(app);
