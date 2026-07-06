@@ -1,4 +1,4 @@
-const EmailRepository = require('../../repository/repository');
+const EmailRepository = require('../repository/repository');
 
 class EmailService {
     async sendEmail(data) {
